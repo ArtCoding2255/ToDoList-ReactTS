@@ -17,7 +17,6 @@ const App: React.FC = () => {
   };
 
   console.log('All todos', toDos);
-  console.log('The last todo:', toDo);
 
   return (
     <div className="App">
