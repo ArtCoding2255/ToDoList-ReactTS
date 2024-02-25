@@ -19,19 +19,27 @@ const SingleToDo: React.FC<Props> = ({ toDos, setToDos, toDo }) => {
   const handleDone = (id: number) => {
     setToDos(
       toDos.map((todo) =>
-        todo.id === id ? { ...todo, isDone: !todo.isDone } : toDo
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
       )
     );
+  };
+  //Delete Feature
+  const handleDelete = (id: number) => {
+    setToDos(toDos.filter((todo) => todo.id !== id));
   };
 
   return (
     <form className="todos__single">
-      <span className="todos__single--text">{toDo.todo}</span>
+      {toDo.isDone ? (
+        <s className="todos__single--text">{toDo.todo}</s>
+      ) : (
+        <span className="todos__single--text">{toDo.todo}</span>
+      )}
       <div>
         <span className="icon">
           <AiFillEdit />
         </span>
-        <span className="icon">
+        <span className="icon" onClick={() => handleDelete(toDo.id)}>
           <AiFillDelete />
         </span>
         <span className="icon" onClick={() => handleDone(toDo.id)}>

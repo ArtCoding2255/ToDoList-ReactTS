@@ -24,9 +24,6 @@ const App: React.FC = () => {
       <span className="heading">Taskify</span>
       <InputField toDo={toDo} setToDo={setToDo} handleAdd={handleApp} />
       <ToDoList setToDos={setToDos} toDos={toDos} />
-      {toDos.map((t) => (
-        <li>{t.todo}</li>
-      ))}
     </div>
   );
 };
